@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { useTransition } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import Form from 'react-bootstrap-form';
+import Form from 'react-bootstrap/Form';
 import { Formik } from 'formik';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -12,14 +12,13 @@ import avatar from '../assets/avatar.jpg';
 import { loginSchema } from '../utils/validation';
 import fetchAuth from '../utils/fetchAuth';
 import useAuth from '../hooks/useAuth.jsx';
-import authMapping from '../utils/mapping';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { t } = useTransition();
+  const { t } = useTranslation();
   const inputRef = useRef(null);
   const auth = useAuth();
-  const { logIn } = auth;
+  const { authMapping } = auth;
   const [feedbackState, setFeedback] = useState(false);
 
   useEffect(() => {
@@ -40,10 +39,12 @@ const Login = () => {
   return (
     <Formik
       validationSchema={loginSchema}
-      onSubmit={async (data) => {
+      onSubmit={async (data, { setSubmitting }) => {
         console.log(data);
+        setSubmitting(true);
         const response = await fetchAuth(data);
-        authMapping[response.status](response, logIn, setFeedback, navigate);
+        authMapping[response.status](response, setFeedback, navigate);
+        setSubmitting(false);
       }}
       initialValues={{
         username: '',
@@ -56,6 +57,7 @@ const Login = () => {
         values,
         touched,
         errors,
+        isSubmitting,
       }) => (
         <Form onSubmit={handleSubmit} className="formLogin">
           <Container>
@@ -63,7 +65,7 @@ const Login = () => {
               <Card.Body className="p-5">
                 <Row>
                   <Col xs={{ span: 6 }} sm={{ span: 6 }}>
-                    <div className="d-flex" style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    <div className="d-flex m-5" style={{ alignItems: 'center', justifyContent: 'center' }}>
                       <img className="rounded-circle" src={avatar} alt={t('join')} />
                     </div>
                   </Col>
@@ -99,7 +101,7 @@ const Login = () => {
                       ) : null}
                       {renderFeedback()}
                     </Form.Group>
-                    <button type="submit" className="btn btn-outline-primary btn-block w-100">
+                    <button type="submit" className="btn btn-outline-primary btn-block w-100" disabled={isSubmitting}>
                       {t('join')}
                     </button>
                   </Col>
@@ -107,7 +109,7 @@ const Login = () => {
               </Card.Body>
               <Card.Footer className="p-4">
                 <div style={{ textAlign: 'center' }}>
-                  <span className="m-1">{t('doesn\'t have account?')}</span>
+                  <span className="m-1">{t('doesnt_have_an_account?')}</span>
                   <a href="/signup">
                     {t('registration')}
                   </a>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -8,6 +8,7 @@ import { actions as UIActions } from '../../slices/UISlice.js';
 import useChatApi from '../../hooks/useChatApi';
 
 const DeleteChannel = () => {
+  const [isSubmitting, setSubmitting] = useState(false);
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const modalStatus = useSelector((state) => state.currentUI.showModal);
@@ -24,6 +25,7 @@ const DeleteChannel = () => {
   };
 
   const deleteHandle = (e) => {
+    setSubmitting(true);
     e.preventDefault();
     removeChannel(targetChannel);
     dispatch(UIActions.hideModal());
@@ -47,12 +49,12 @@ const DeleteChannel = () => {
             {t('are_you_sure')}
           </p>
           <div className="text-end">
-            <button type="button" className="btn btn-secondary btn-block mx-1" onClick={() => hideHandle()}>
+            <button type="button" className="btn btn-secondary btn-block mx-1" onClick={() => hideHandle()} disabled={isSubmitting}>
               {' '}
               {t('cancel')}
               {' '}
             </button>
-            <button type="submit" className="btn btn-danger btn-block" ref={inputEl}>
+            <button type="submit" className="btn btn-danger btn-block" ref={inputEl} disabled={isSubmitting}>
               {t('delete')}
             </button>
           </div>

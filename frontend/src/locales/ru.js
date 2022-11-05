@@ -1,18 +1,16 @@
 export default {
   translation: {
     join: 'Войти',
-    'log out': 'Выйти',
     'your nickname': 'Ваш никнейм',
-    have_an_account: 'Есть аккаунт?',
-    account_exist: 'Аккаунт с таким именем уже существует',
-    'doesnt hava account?': 'Нет аккаунта?',
     password: 'Пароль',
     registration: 'Регистрация',
     sign_up: 'Зарегистрироваться',
     password_confirmation: 'Подтвердите пароль',
+    'doesnt_have_an_account?': 'Нет аккаунта?',
     incorrectAuthData: 'Неверные имя пользователя или пароль',
     new_message: 'Новое сообщение',
     channel_name: 'Имя канала',
+    'log out': 'Выйти',
     channels: 'Каналы',
     'enter messages': 'Введите сообщение',
     counter: {
@@ -37,6 +35,8 @@ export default {
     required_field: 'Обязательное поле',
     min_6_symbols: 'Не менее 6 символов',
     same_password: 'Пароли должны совпадать',
+    have_an_account: 'Есть аккаунт?',
+    account_exist: 'Аккаунт с таким именем уже существует',
     toast: {
       add_channel: 'Канал создан',
       remove_channel: 'Канал удалён',

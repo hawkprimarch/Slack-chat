@@ -21,6 +21,14 @@ import RenderModal from './modals';
 import 'react-toastify/dist/ReactToastify.css';
 import routes from '../routes';
 
+const PrivateRoute = ({ children }) => {
+  const auth = useAuth();
+  const location = useLocation();
+  return (
+    auth.loggedIn ? children : <Navigate to={routes.loginPage()} state={{ from: location }} />
+  );
+};
+
 const App = () => (
   <AuthProvider>
     <div className="App d-flex flex-column h-100">
@@ -33,7 +41,7 @@ const App = () => (
               <PrivateRoute>
                 <Home />
               </PrivateRoute>
-              )}
+            )}
           />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />

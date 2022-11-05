@@ -1,10 +1,10 @@
 import React from 'react';
-import Alert from 'react-bootstrap/Alert';
+import notFoundPic from '../assets/notFoundPic.svg';
 
 const NotFound = () => (
-  <Alert variant="danger">
-    <Alert.Heading>Sorry, page not found!</Alert.Heading>
-  </Alert>
+  <div className="d-flex m-5" style={{ alignItems: 'center', justifyContent: 'center' }}>
+    <img src={notFoundPic} alt="notFound" />
+  </div>
 );
 
 export default NotFound;

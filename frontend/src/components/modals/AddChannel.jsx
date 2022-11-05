@@ -44,7 +44,8 @@ const AddChannel = () => {
           initialValues={{
             name: '',
           }}
-          onSubmit={(values) => {
+          onSubmit={(values, { setSubmitting }) => {
+            setSubmitting(true);
             addNewChannel(values);
             dispatch(UIActions.hideModal());
             toast.success(t('toast.add_channel'), toastParams);
@@ -56,6 +57,7 @@ const AddChannel = () => {
             values,
             touched,
             errors,
+            isSubmitting,
           }) => (
             <Form onSubmit={handleSubmit}>
               <Form.Label htmlFor="name" visuallyHidden="false">{t('channel_name')}</Form.Label>
@@ -73,8 +75,8 @@ const AddChannel = () => {
                 <div className="invalid-feedback">{t(errors.name)}</div>
               ) : null}
               <div className="text-end">
-                <button type="button" className="btn btn-secondary btn-block mx-1" onClick={() => hideHandle()}>{t('cancel')}</button>
-                <button type="submit" className="btn btn-primary btn-block">{t('send')}</button>
+                <button type="button" className="btn btn-secondary btn-block mx-1" onClick={() => hideHandle()} disabled={isSubmitting}>{t('cancel')}</button>
+                <button type="submit" className="btn btn-primary btn-block" disabled={isSubmitting}>{t('send')}</button>
               </div>
             </Form>
           )}

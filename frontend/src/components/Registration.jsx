@@ -65,7 +65,7 @@ const Registration = () => {
               <Card.Body className="p-5">
                 <Row>
                   <Col xs={{ span: 6 }} sm={{ span: 6 }}>
-                    <div className="d-flex" style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    <div className="d-flex m-5" style={{ alignItems: 'center', justifyContent: 'center' }}>
                       <img className="rounded-circle" src={avatar} alt={t('registration')} />
                     </div>
                   </Col>
