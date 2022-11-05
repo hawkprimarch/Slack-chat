@@ -1,8 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/hawkprimarch/frontend-project-12/workflows/hexlet-check/badge.svg)](https://github.com/hawkprimarch/frontend-project-12/actions)
 # Simplified copy of Slack chat
-## Demo
-[Deployment of app to Railway](https://frontend-project-12-production-93ad.up.railway.app/)
 
 ---
 ## Frontend Technologies
@@ -29,6 +27,9 @@ $ make install
 - Chat rooms: 2 default chat channels with the option to add users' custom chat channels
 - Custom chat channels can be renamed or deleted
 - Easy switching between the chat channels
+
+## Demo
+[Deployment of app to Railway](https://frontend-project-12-production-93ad.up.railway.app/)
 
 ## Overview
 
