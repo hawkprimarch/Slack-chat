@@ -1,8 +1,9 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/hawkprimarch/frontend-project-12/workflows/hexlet-check/badge.svg)](https://github.com/hawkprimarch/frontend-project-12/actions)
 # Simplified copy of Slack chat
-# [Deployment of app to Railway](https://frontend-project-12-production-93ad.up.railway.app/)
-### With the ability to add, delete, edit channels, send messages, register and authorize.
+## Demo
+[Deployment of app to Railway](https://frontend-project-12-production-93ad.up.railway.app/)
+
 ---
 ## Frontend Technologies
 - JavaScript
