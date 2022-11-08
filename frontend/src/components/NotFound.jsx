@@ -2,8 +2,13 @@ import React from 'react';
 import notFoundPic from '../assets/notFoundPic.svg';
 
 const NotFound = () => (
-  <div className="d-flex m-5" style={{ alignItems: 'center', justifyContent: 'center' }}>
-    <img src={notFoundPic} alt="notFound" />
+  <div className="text-center">
+    <img src={notFoundPic} className="img-fluid h-25" alt="notFound" />
+    <h1 className="h4 text-muted">Страница не найдена</h1>
+    <p className="text-muted">
+      Но вы можете перейти на
+      <a href="/"> главную страницу</a>
+    </p>
   </div>
 );
 
