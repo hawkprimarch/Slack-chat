@@ -50,6 +50,7 @@ const AuthProvider = ({ children }) => {
 
   const authValue = useMemo(() => ({
     logIn, logOut, loggedIn, getAuthHeader, getUsername, authMapping,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [loggedIn, logIn, logOut, getUsername, authMapping]);
 
   return (
