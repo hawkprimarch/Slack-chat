@@ -2,7 +2,6 @@
 [![Actions Status](https://github.com/hawkprimarch/frontend-project-12/workflows/hexlet-check/badge.svg)](https://github.com/hawkprimarch/frontend-project-12/actions)
 # Simplified copy of Slack chat
 
----
 ## Frontend Technologies
 - JavaScript
 - React
