@@ -28,7 +28,7 @@ $ make install
 - Easy switching between the chat channels
 
 ## Demo
-[Deployment of app to Railway](slack-chat-production-deb9.up.railway.app)
+[Deployment of app to Railway](https://slack-chat-production-deb9.up.railway.app/login)
 
 ## Overview
 
